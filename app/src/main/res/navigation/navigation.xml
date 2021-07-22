@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/start2">
+
+    <fragment
+        android:id="@+id/start2"
+        android:name="com.alf_here.rpc.Start"
+        android:label="fragment_start"
+        tools:layout="@layout/fragment_start">
+        <action
+            android:id="@+id/action_start2_to_game"
+            app:destination="@id/game" />
+    </fragment>
+    <fragment
+        android:id="@+id/game"
+        android:name="com.alf_here.rpc.Game"
+        android:label="game_fragment"
+        tools:layout="@layout/fragment_game">
+        <action
+            android:id="@+id/action_game_to_gameResult"
+            app:destination="@id/gameResult"
+            app:popUpTo="@id/start2" />
+    </fragment>
+    <fragment
+        android:id="@+id/gameResult"
+        android:name="com.alf_here.rpc.GameResult"
+        android:label="fragment_game_result"
+        tools:layout="@layout/fragment_game_result">
+        <action
+            android:id="@+id/action_gameResult_to_game"
+            app:destination="@id/game"
+            app:popUpTo="@id/start2" />
+    </fragment>
+</navigation>

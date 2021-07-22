@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="medium_margin">32dp</dimen>
+    <dimen name="weapon_image_size">135dp</dimen>
+    <dimen name="weapon_image_size_small">100dp</dimen>
+    <dimen name="text_size_regular">24sp</dimen>
+    <dimen name="text_size_big">32sp</dimen>
+    <dimen name="small_margine">12dp</dimen>
+</resources>
