@@ -18,30 +18,22 @@ class SharedViewModel : ViewModel() {
     var gamerScore = 0
     var enemyScore = 0
     var message = "Didn't initialized"
-    var enemyWeaponDrawable =R.drawable.ic_dog_128
-    var gamerWeaponDrawable =R.drawable.ic_dog_128
+    var enemyWeaponDrawable = R.drawable.ic_dog_128
+    var gamerWeaponDrawable = R.drawable.ic_dog_128
 
-    fun onWeaponChosen(weapon: Int) {
-        val enemyWeapon = randomWeapon
+    fun onWeaponChosen(weapon: Weapon) {
+        val enemyWeapon = Weapon.values()[randomWeapon]
         val roundResult = weapon.isStrongerThen(enemyWeapon)
         message = getResultMessage(roundResult)
-        enemyWeaponDrawable = getWeaponDrawableRes(enemyWeapon)
-        gamerWeaponDrawable = getWeaponDrawableRes(weapon)
-        when(roundResult){
+        enemyWeaponDrawable = enemyWeapon.image
+        gamerWeaponDrawable = weapon.image
+        when (roundResult) {
             FightResult.WIN -> gamerScore++
             FightResult.LOOSE -> enemyScore++
             FightResult.TIE -> {
                 gamerScore++
                 enemyScore++
             }
-        }
-    }
-
-    private fun getWeaponDrawableRes(@IntRange(from = 0, to = 2) weapon: Int): Int {
-        return when (weapon) {
-            0 -> R.drawable.ic_rock_64
-            1 -> R.drawable.ic_paper_plane_64
-            else -> R.drawable.ic_scissors_64
         }
     }
 
@@ -52,16 +44,22 @@ class SharedViewModel : ViewModel() {
             FightResult.LOOSE -> "Ouch! You lost..."
         }
     }
+}
 
-    private fun Int.isStrongerThen(enemyWeapon: Int): FightResult {
-        val d = (AMOUNT_OF_WEAPONS_IN_GAME + this - enemyWeapon) % AMOUNT_OF_WEAPONS_IN_GAME
+fun Weapon.isStrongerThen(enemyWeapon: Weapon): FightResult {
+    val d = (Weapon.values().size + this.ordinal - enemyWeapon.ordinal) % Weapon.values().size
 
-        return when {
-            d == 0 -> FightResult.TIE
-            d % 2 == 1 -> FightResult.WIN
-            else -> FightResult.LOOSE
-        }
+    return when {
+        d == 0 -> FightResult.TIE
+        d % 2 == 1 -> FightResult.WIN
+        else -> FightResult.LOOSE
     }
+}
+
+enum class Weapon(@DrawableRes val image: Int) {
+    ROCK(R.drawable.ic_rock_64),
+    PAPER(R.drawable.ic_paper_plane_64),
+    SCISSORS(R.drawable.ic_scissors_64)
 }
 
 enum class FightResult {

@@ -6,15 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 
-/**
- * Home fragment to kick off the game.
- * Use the [Start.newInstance] factory method to
- * create an instance of this fragment.
- */
-class Start : Fragment() {
+class StartFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,10 +24,5 @@ class Start : Fragment() {
         button?.setOnClickListener {
             findNavController().navigate(R.id.action_start2_to_game)
         }
-    }
-
-    companion object {
-        @JvmStatic
-        fun newInstance() = Start()
     }
 }

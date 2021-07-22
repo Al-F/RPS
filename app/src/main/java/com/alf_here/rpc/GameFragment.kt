@@ -10,7 +10,7 @@ import android.widget.ImageButton
 import android.widget.TextView
 import androidx.navigation.fragment.findNavController
 
-class Game : Fragment() {
+class GameFragment : Fragment() {
 
     private lateinit var viewModel: SharedViewModel
 
@@ -32,17 +32,17 @@ class Game : Fragment() {
         view.findViewById<ImageButton>(R.id.rock_button)
             .setOnClickListener {
                 findNavController().navigate(R.id.action_game_to_gameResult)
-                viewModel.onWeaponChosen(0)
+                viewModel.onWeaponChosen(Weapon.ROCK)
             }
         view.findViewById<ImageButton>(R.id.paper_button)
             .setOnClickListener {
                 findNavController().navigate(R.id.action_game_to_gameResult)
-                viewModel.onWeaponChosen(1)
+                viewModel.onWeaponChosen(Weapon.PAPER)
             }
         view.findViewById<ImageButton>(R.id.scissors_button)
             .setOnClickListener {
                 findNavController().navigate(R.id.action_game_to_gameResult)
-                viewModel.onWeaponChosen(2)
+                viewModel.onWeaponChosen(Weapon.SCISSORS)
             }
     }
 }

@@ -11,7 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 
-class GameResult : Fragment() {
+class GameResultFragment : Fragment() {
 
     private lateinit var viewModel: SharedViewModel
 

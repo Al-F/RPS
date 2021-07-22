@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/start2"
-        android:name="com.alf_here.rpc.Start"
+        android:name="com.alf_here.rpc.StartFragment"
         android:label="fragment_start"
         tools:layout="@layout/fragment_start">
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/game"
-        android:name="com.alf_here.rpc.Game"
+        android:name="com.alf_here.rpc.GameFragment"
         android:label="game_fragment"
         tools:layout="@layout/fragment_game">
         <action
@@ -26,7 +26,7 @@
     </fragment>
     <fragment
         android:id="@+id/gameResult"
-        android:name="com.alf_here.rpc.GameResult"
+        android:name="com.alf_here.rpc.GameResultFragment"
         android:label="fragment_game_result"
         tools:layout="@layout/fragment_game_result">
         <action
